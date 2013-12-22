@@ -1,0 +1,56 @@
+#main {
+        position: relative;
+        height: 100%;
+}
+.header {
+        position: relative;
+        height: 40px;
+        width: 150;
+}
+.logo {
+        position: absolute;
+        top: 8px;
+        left: 40px;
+        background-image: url('/images/Fuga_Logo.gif');
+        background-repeat: no-repeat;
+        width: 68px;
+        height: 28px;
+}
+.continer {
+        height: 100%;
+}
+.menuArea {
+        width: 200px;
+        float: left;
+        height: 100%;
+}
+.content {
+        float: left;
+        margin-left: 4px;
+        -webkit-border-radius: 3px;
+
+        border-radius: 3px;
+        margin-top: 10px;
+        width: 1024px;
+        min-height: 500px;
+        padding: 6px;
+        border-width: 1px;
+        border-color: #cdcdcd !important;
+        border-style: solid;
+}
+.footer {
+        position: absolute;
+        bottom: 0px;
+        height: 20px;
+        width: 100%;
+        display: none;
+        text-align: center;
+}
+.categoriesList {
+        text-align: center !important;
+}
+.logoutLink {
+        position: absolute;
+        left: 151px;
+        top: 22px;
+}

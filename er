@@ -1,0 +1,29 @@
+
+[1mFrom:[0m /home/fastwings/Projects/Ruby/Feelike/Staging-sivan/Feelike/app/controllers/api/v1/users/tokens_controller.rb @ line 129 Api::V1::Users::TokensController#forgotPassword:
+
+    [1;34m120[0m: [1;31mdef[0m [1;34mforgotPassword[0m
+    [1;34m121[0m:   errors ||= [1;34m[4mArray[0m.new
+    [1;34m122[0m:   email = params[[1;32m:email[0m]
+    [1;34m123[0m:   [1;31mif[0m params[[1;32m:email[0m].blank?
+    [1;34m124[0m:     errors.push([1;34m[4mI18n[0m.t([32m[1;32m"[0m[32merrors.messages.input_string_empty[1;32m"[0m[32m[0m))
+    [1;34m125[0m:   [1;31mend[0m
+    [1;34m126[0m:   [1;31mif[0m errors.length == [1;34m0[0m 
+    [1;34m127[0m:     @user=[1;34m[4mUser[0m.find_by_email(email.downcase)
+    [1;34m128[0m: 
+ => [1;34m129[0m:     binding.pry
+    [1;34m130[0m: 
+    [1;34m131[0m:     @responseObject = [1;34m[4mOpenStruct[0m.new({
+    [1;34m132[0m:       [35mstatus[0m: [1;36mtrue[0m,
+    [1;34m133[0m:       [35merrors[0m: [],
+    [1;34m134[0m:       [35mcode[0m: [1;34m[4mAPI_CODE_ERRORS[0m[[32m[1;32m'[0m[32mServices[1;32m'[0m[32m[0m][[32m[1;32m'[0m[32mGlobal[1;32m'[0m[32m[0m][[32m[1;32m'[0m[32msuccess[1;32m'[0m[32m[0m],
+    [1;34m135[0m:       [35mobjectData[0m: [1;34m[4mOpenStruct[0m.new({
+    [1;34m136[0m:         [35mis_email_exist[0m: !@user.nil?
+    [1;34m137[0m:       }),
+    [1;34m138[0m:       [35mtimestamp[0m: ([1;34m[4mDate[0m.new).to_time.to_i.abs
+    [1;34m139[0m:     })
+    [1;34m140[0m:     render [1;32m:template[0m => [32m[1;32m'[0m[32mapi/v1/users/tokens/forgotpassword[1;32m'[0m[32m[0m ,[1;32m:handlers[0m => [[1;32m:rabl[0m],[1;32m:formats[0m => [[1;32m:json[0m]
+    [1;34m141[0m:   [1;31melse[0m
+    [1;34m142[0m:     render [1;32m:json[0m => [1;34m[4mApi[0m::[1;34m[4mInit[0m.ShowErrorJson([1;34m[4mAPI_CODE_ERRORS[0m[[32m[1;32m'[0m[32mServices[1;32m'[0m[32m[0m][[32m[1;32m'[0m[32mGlobal[1;32m'[0m[32m[0m][[32m[1;32m'[0m[32mformInputError[1;32m'[0m[32m[0m],[1;34m[4mI18n[0m.t([32m[1;32m"[0m[32merrors.messages.input_error[1;32m"[0m[32m[0m), errors).to_json
+    [1;34m143[0m:   [1;31mend[0m
+    [1;34m144[0m: [1;31mend[0m
+

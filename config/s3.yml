@@ -1,0 +1,27 @@
+common: &commonLocal
+  access_key_id: AKIAJGODWYREOODFFXOA
+  secret_access_key: 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
+
+common: &commonStage
+  access_key_id: AKIAJGODWYREOODFFXOA
+  secret_access_key: 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
+
+common: &commonRemote
+  access_key_id: AKIAJGODWYREOODFFXOA
+  secret_access_key: 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
+
+development:
+  <<: *commonLocal
+  bucket: feelike-assets-dev
+test:
+  <<: *commonStage
+  bucket: feelike-assets-testing
+prestaging:
+  <<: *commonStage
+  bucket: feelike-assets-prestaging
+staging:
+  <<: *commonStage
+  bucket: feelike-assets-staging
+production:
+  <<: *commonRemote
+  bucket: feelike-assets-prod

@@ -1,0 +1,50 @@
+# Database  Config Based Envirments
+# Local sivan (linux)
+common: &commonLocal
+  adapter: postgresql
+  username: userdb
+  password: 123456 # from psql setup, see Postgresql
+  host:     127.0.0.1
+  encoding: utf8
+  port:     5432
+
+common: &commonStage
+  adapter: postgresql
+  username: feelike
+  password: 123feelike456 # from psql setup, see Postgresql
+  host:     feelike-dbs-dev.tk
+  encoding: utf8
+  port:     5432
+localsivanlinux:
+  <<: *commonLocal
+  database: feelike
+# Local sivan (windows)
+localsivanwindows:
+  <<: *commonLocal
+  database: feelike
+# Development server
+development:
+  <<: *commonStage
+  database: feelikedb
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *commonStage
+  database: feelikedb-test
+staging:
+  <<: *commonStage
+  database: feelikedb
+prestaging:
+  <<: *commonStage
+  database: feelikedb
+
+production:
+  adapter: postgresql
+  database: feelikedb
+  username: userdb
+  password: 123456 # from psql setup, see Postgresql
+  host:     127.0.0.1
+  encoding: utf8
+  port:     3306

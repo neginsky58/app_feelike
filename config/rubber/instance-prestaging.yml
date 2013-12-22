@@ -1,0 +1,57 @@
+---
+- !ruby/object:Rubber::Configuration::InstanceItem
+  name: app-prestaging
+  domain: feelike-app-dev.tk
+  roles:
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: background_worker
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: graphite_server
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: graphite_web
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: monit
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: nginx
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: unicorn
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: web
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: web_tools
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: common
+    options: {}
+  instance_id: i-cda9f0af
+  image_type: m1.small
+  image_id: ami-eafa5883
+  security_groups:
+  - feelike-app_prestaging_default
+  - feelike-app_prestaging_web
+  - feelike-app_prestaging_web_tools
+  - feelike-app_prestaging_app-prestaging
+  - feelike-app_prestaging_background_worker
+  - feelike-app_prestaging_sidekiq
+  - feelike-app_prestaging_graphite_server
+  - feelike-app_prestaging_graphite_web
+  - feelike-app_prestaging_monit
+  - feelike-app_prestaging_nginx
+  - feelike-app_prestaging_unicorn
+  - feelike-app_prestaging_common
+  external_host: ec2-54-225-215-181.compute-1.amazonaws.com
+  external_ip: 54.225.215.181
+  internal_host: ip-10-28-108-110.ec2.internal
+  internal_ip: 10.28.108.110
+  zone: us-east-1a
+  platform: linux
+  root_device_type: instance-store
+- volumes: {}
+  static_ips: {}

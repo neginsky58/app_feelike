@@ -1,0 +1,33 @@
+common: &commonLocal
+  API_Key: "123456"
+  API_CRON_Key: "123456"
+  Max_Page: 20
+  Agent:
+    Uri: "http://127.0.0.1:3001/api/%s"
+    Version: "application/apps.3fishmedia.com; version=v1"
+    API_KEY: "123456"
+    API_CRON_Key: "123456"
+common: &commonRemote
+  API_Key: "123456"
+  API_CRON_Key: "123456"
+  Max_Page: 20
+  Agent:
+    Uri: "http://54.225.201.254/api/%s"
+    Version: "application/apps.3fishmedia.com; version=v1"
+    API_KEY: "123456"
+    API_CRON_Key: "123456"
+
+localsivanlinux:
+  <<: *commonLocal
+localsivanwindows:
+  <<: *commonLocal
+development:
+  <<: *commonLocal
+test:
+  <<: *commonRemote
+prestaging:
+  <<: *commonRemote
+staging:
+  <<: *commonRemote
+production:
+  <<: *commonRemote

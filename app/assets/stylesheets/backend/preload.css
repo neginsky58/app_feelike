@@ -1,0 +1,44 @@
+.preloader-blocker {
+    display: none;
+    z-index: 9998;
+    /*background-color: #C5C5C5;
+    opacity: 0.3;*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.preloader {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-color: #c5c5c5;
+    z-index: 9999;
+    height: 200px;
+    width: 300px;
+}
+.preloaderImage {
+    /*background-image: url(../images/LoadingWait.gif);
+    background-repeat: no-repeat;*/
+    height: 138px;
+    width: 215px;
+    padding-left: 20px;
+    padding-top: 15px;
+}
+.preloaderImageNoPadding {
+    padding: 0 !important;
+    height: 10px !important;
+}
+.preloaderProductInfo {
+   /* background-size: 80px 80px;*/
+    position: absolute;
+    height: 15px !important;
+    width: 45px !important;
+}
+.preloader span {
+    color: #254174;
+    font-size: 16px;
+    font-weight: bold;
+}

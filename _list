@@ -1,0 +1,18 @@
+
+[1mFrom:[0m /home/fastwings/Projects/Ruby/Feelike/Staging-sivan/Feelike/app/models/user.rb @ line 220 User#getFbFriendsList:
+
+    [1;34m209[0m: [1;31mdef[0m [1;34mgetFbFriendsList[0m () 
+    [1;34m210[0m: 	friends_list = [1;34m[4mArray[0m.new
+    [1;34m211[0m: 	user_socal_obj = [1;34m[4mUsersSocals[0m.byUser([1;36mself[0m.id).first()
+    [1;34m212[0m: 	@graph = [1;34m[4mKoala[0m::[1;34m[4mFacebook[0m::[1;34m[4mAPI[0m.new(user_socal_obj.facebook_token)
+    [1;34m213[0m: 	friends = @graph.get_connections([32m[1;32m"[0m[32mme[1;32m"[0m[32m[0m, [32m[1;32m"[0m[32mfriends[1;32m"[0m[32m[0m)
+    [1;34m214[0m: 	friends.each [1;31mdo[0m |item|
+    [1;34m215[0m: 		fb_item = [1;34m[4mUsersSocals[0m.byFbID(item[[1;32m:id[0m]).first
+    [1;34m216[0m: 		[1;31mif[0m fb_item.nil?
+    [1;34m217[0m: 			friends_list.push(item)
+    [1;34m218[0m: 		[1;31mend[0m
+    [1;34m219[0m: 	[1;31mend[0m
+ => [1;34m220[0m: 	binding.pry
+    [1;34m221[0m: 	friends_list
+    [1;34m222[0m: [1;31mend[0m
+

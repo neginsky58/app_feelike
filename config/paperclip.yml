@@ -1,0 +1,22 @@
+common: &commonLocal
+  host: http://127.0.0.1:3000/uploads
+common: &commonStage
+  host: http://feelike-app-dev.tk/uploads
+  #host: http://ec2-107-20-111-62.compute-1.amazonaws.com/uploads
+common: &commonRemote
+  host: http://feelike-app-dev.tk/uploads
+
+localsivanlinux:
+  <<: *commonLocal
+localsivanwindows:
+  <<: *commonLocal
+development:
+  <<: *commonLocal
+test:
+  <<: *commonStage
+staging:
+  <<: *commonStage
+prestaging:
+  <<: *commonStage
+production:
+  <<: *commonRemote

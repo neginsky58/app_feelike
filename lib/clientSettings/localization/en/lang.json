@@ -1,0 +1,37 @@
+{
+    "Errors": {
+        "Shop": {
+        },
+        "General": {
+            "DataBaseIssues": {
+                "Title": "System Data Failer",
+                "Message": "Please Contact the administrator site"
+            },
+            "NetworkError": {
+                "Title":"Network Error",
+                "Message": "Please Contact the administrator site"
+            }
+        }
+    },
+    "Layout": {
+        "MainPageView": {
+        },
+        "ProductView": {
+            "TabEdit": "Edit %s"
+        },
+        "MainMenu": {
+                "Home": "Index Page",
+                "Settings": "Settings",
+                "Shop": "Shop Management",
+                "Design": "Designs",
+                "Orders": "Orders",
+                "Products": "Products",
+                "Clients":"Clients",
+                "Categories": "Categories",
+                "Themes": "Themes",
+                "Logout": "Logout",
+                "Promotions": "Promotions"
+
+        }
+    }
+}

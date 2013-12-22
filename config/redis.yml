@@ -1,0 +1,44 @@
+common: &commonLocal
+  host: 127.0.0.1
+  port: 6379
+  password: "123456"
+  db: 1
+
+common: &commonStage
+  host: feelike-dbs-dev.tk
+  port: 6379
+  password: "123feelike456"
+
+common: &commonRemote
+  host: feelike-dbs-dev.tk
+  port: 6379
+  password: "123feelike456"
+
+localsivanlinux:
+  <<: *commonLocal
+  namespace: feelike_storage_dev
+  db: 1
+localsivanwindows:
+  <<: *commonLocal
+  namespace: feelike_storage_dev
+  db: 1
+development:
+  <<: *commonLocal
+  namespace: feelike_storage_dev
+  db: 1
+test:
+  <<: *commonStage
+  namespace: feelike_storage_testing
+  db: 1
+staging:
+  <<: *commonStage
+  namespace: feelike_storage_staging
+  db: 1
+prestaging:
+  <<: *commonStage
+  namespace: feelike_storage_prestaging
+  db: 1
+production:
+  <<: *commonRemote
+  namespace: feelike_storage_prod
+  db: 1

@@ -1,0 +1,50 @@
+{
+	"Breadcrumb":{
+		"Element":"#main-breadcrumb",
+		"DefaultBreadcrumb": ["Main" , "Dashboard"]
+	},
+	"UserMenu": {
+		"Element": "#userMenu",
+		"Profile":{
+			"Link": "/profile"
+		},
+		"Logout":{
+			"Link": "/logout"
+		}
+	},
+	"Main": {
+		"Element": "#main-menu",
+		"Items":[
+			{
+				"SectionText": "Main",
+				"Enable": true,
+				"Items": [
+					{"ItemText": "Dashboard" , "Link": "/dash", "Icon": "icon-home","Enable": true}
+				]
+			},
+			{
+				"SectionText": "Agent",
+				"Enable": true,
+				"Items": [
+					{"ItemText": "Agent Settings" , "Link": "/agnet" , "Icon": "icon-eye-open","Enable": true},
+					{"ItemText": "Pool Control" , "Link": "/pool" , "Icon": "icon-tasks","Enable": true}
+				]
+			},
+			{
+				"SectionText": "Statistics Control",
+				"Enable": true,
+				"Items": [
+					{"ItemText": "Statistics Settings" , "Link": "/statSettings" , "Icon": "icon-th","Enable": true},
+					{"ItemText": "Statistics Items" , "Link": "/statItem" , "Icon": "icon-list-alt","Enable": true}
+				]
+			},
+			{
+				"SectionText": "Users",
+				"Enable": true,
+				"Items": [
+					{"ItemText": "User List" , "Link": "/users" , "Icon": "icon-user","Enable": true}
+				]
+			}
+		]
+	}
+}
