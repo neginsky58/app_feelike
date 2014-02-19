@@ -26,28 +26,7 @@ class Api::V1::Feelike::PostsController < API::V1::BaseController
       render :json => Api::Init.ShowErrorJson(API_CODE_ERRORS['Services']['Global']['formInputError'],I18n.t("errors.messages.feelike.input_error"), errors).to_json
     end
   end
-  def newImage
-    errors ||= Array.new
-    if params[:feeling_id].blank?&&Feelings.isExists(params[:feeling_id].to_i)
-      errors.push(I18n.t("errors.messages.element_not_id"))
-    end
-    if params[:asset_id].blank?  &&ContentItem.isExists(params[:asset_id].to_i)
-      errors.push(I18n.t("errors.messages.element_not_id"))
-    end
-    if params[:content].blank?
-      params[:content] = ''
-    end
-    if params[:ue_id].blank?  &&UsersExprience.isExists(params[:ue_id].to_i)
-      params[:ue_id] = nil
-    end
-    if errors.length == 0 
-      Posts.create({user_id: params[:user].id  ,asset_id:params[:asset_id].to_i, feeling_id:params[:feeling_id].to_i, content_item_id:0,content:params[:content], userExprience_id:params[:ue_id].to_i})
-      ContentItem.markAsFeelike(params[:user].id,params[:feeling_id].to_i,params[:ue_id],0,params[:asset_id].to_i)
-      self.default_response
-    else
-      render :json => Api::Init.ShowErrorJson(API_CODE_ERRORS['Services']['Global']['formInputError'],I18n.t("errors.messages.feelike.input_error"), errors).to_json
-    end
-  end
+
   #will update a post
   def update
     errors ||= Array.new

@@ -66,34 +66,7 @@ class Api::V1::Feelike::ExpirencesController < API::V1::BaseController
       })
       render :template => 'api/v1/feelike/expirences/categoires' ,:handlers => [:rabl],:formats => [:json]
   end
-  def getExpirenceProfile
-    errors ||= Array.new
-    if params[:ue_id].blank? && !UsersExprience.isExists(params[:ue_id].to_i)
-      errors.push(I18n.t("errors.messages.element_not_id"))
-    end
-    if params[:type].blank? 
-      params[:type] = 'all'
-    end
-    if params[:page].blank? 
-      params[:page] = 1
-    end
-
-    if errors.length == 0 
-      ueObject = UsersExprience.where({id: params[:ue_id].to_i}).first
-      data = ueObject.getExpienceByProfile(params[:type],params[:user].id,params[:page].to_i)
-      @responseObject = OpenStruct.new({
-        status: true,
-        errors: [],
-        code: API_CODE_ERRORS['Services']['Global']['success'],
-        objectData: OpenStruct.new(data),
-        timestamp: (Date.new).to_time.to_i.abs
-      })
-
-      render :template => 'api/v1/feelike/expirences/expirenceProfile' ,:handlers => [:rabl],:formats => [:json]
-    else
-      render :json => Api::Init.ShowErrorJson(API_CODE_ERRORS['Services']['Global']['formInputError'],I18n.t("errors.messages.feelike.input_error"), errors).to_json
-    end
-  end
+  
   def addParticipants 
     errors ||= Array.new
     if params[:users_array].blank?
@@ -134,6 +107,34 @@ class Api::V1::Feelike::ExpirencesController < API::V1::BaseController
         end
       end
       self.default_response
+    else
+      render :json => Api::Init.ShowErrorJson(API_CODE_ERRORS['Services']['Global']['formInputError'],I18n.t("errors.messages.feelike.input_error"), errors).to_json
+    end
+  end
+  def getExpirenceProfile
+    errors ||= Array.new
+    if params[:ue_id].blank? && !UsersExprience.isExists(params[:ue_id].to_i)
+      errors.push(I18n.t("errors.messages.element_not_id"))
+    end
+    if params[:type].blank? 
+      params[:type] = 'all'
+    end
+    if params[:page].blank? 
+      params[:page] = 1
+    end
+
+    if errors.length == 0 
+      ueObject = UsersExprience.where({id: params[:ue_id].to_i}).first
+      data = ueObject.getExpienceByProfile(params[:type],params[:user].id,params[:page].to_i)
+      @responseObject = OpenStruct.new({
+        status: true,
+        errors: [],
+        code: API_CODE_ERRORS['Services']['Global']['success'],
+        objectData: OpenStruct.new(data),
+        timestamp: (Date.new).to_time.to_i.abs
+      })
+
+      render :template => 'api/v1/feelike/expirences/expirenceProfile' ,:handlers => [:rabl],:formats => [:json]
     else
       render :json => Api::Init.ShowErrorJson(API_CODE_ERRORS['Services']['Global']['formInputError'],I18n.t("errors.messages.feelike.input_error"), errors).to_json
     end

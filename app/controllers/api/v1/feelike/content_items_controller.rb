@@ -524,33 +524,7 @@ class Api::V1::Feelike::ContentItemsController < API::V1::BaseController
       render :json => Api::Init.ShowErrorJson(API_CODE_ERRORS['Services']['Global']['formInputError'],I18n.t("errors.messages.feelike.input_error"), errors).to_json
     end
   end
-  def send_report
-    errors ||= Array.new
-    if params[:item_id].blank? ||params[:item_id].is_int
-      errors.push(I18n.t("errors.messages.element_not_id"))
-    end
-    if params[:user_id].blank? ||params[:user_id].is_int
-      errors.push(I18n.t("errors.messages.element_not_id"))
-    end
-    if params[:feeling_id].blank? ||params[:feeling_id].is_int
-      errors.push(I18n.t("errors.messages.element_not_id"))
-    end
-    if params[:ue_id].blank? ||params[:ue_id].is_int
-      errors.push(I18n.t("errors.messages.element_not_id"))
-    end
-    if params[:asset_id].blank? ||params[:asset_id].is_int
-      errors.push(I18n.t("errors.messages.element_not_id"))
-    end
-    if params[:content].blank? 
-      params[:content] = ''
-    end
-    if errors.length == 0 
-      Api::V1::Mailer::Reports.deliver_feelike(params[:item_id].to_i,params[:user_id].to_i,params[:feeling_id].to_i,params[:ue_id].to_i, params[:asset_id].to_i , params[:content]).deliver
-      self.default_response
-    else
-      render :json => Api::Init.ShowErrorJson(API_CODE_ERRORS['Services']['Global']['formInputError'],I18n.t("errors.messages.feelike.input_error"), errors).to_json
-    end
-  end
+  
   protected
   #get the conent items by type: 0 = youtube , 1 = amazon , 2 = itunes
   def getContentItemsRender(type,providorCategory_id, term , page=1)
